@@ -1,0 +1,17 @@
+/* style.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Dosis", sans-serif;
+}
+
+:root {
+    --black: #22092C;
+    --dark-orange: #F05941;
+    --dark-red: #872341;
+    --red: #BE3144;
+    --orange: #FFA33C;
+    --yellow: #FFFB73;
+    --cream: #FECDA6;
+}

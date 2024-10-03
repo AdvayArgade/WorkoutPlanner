@@ -1,0 +1,61 @@
+/* pages/Entry/entry.css */
+
+.entry {
+    margin: 100px 0;
+}
+
+.entry .entriesContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.entriesContainer .entryItem {
+    height: 200px;
+    text-align: center;
+    width: 500px;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(255, 228, 196, 0.523);
+}
+
+.entryItem h1 {
+    background-color: var(--dark-red);
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.entryItem .mealsContainer {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.entryItem .mealsContainer .mealItem {
+    background-color: var(--cream);
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.entryItem .routinesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.entryItem .routinesContainer .routineItem {
+    background-color: var(--cream);
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 10px;
+}

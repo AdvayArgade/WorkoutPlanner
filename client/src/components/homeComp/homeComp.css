@@ -1,0 +1,82 @@
+/* components/homeComp/homeComp.css */
+
+.homeCompContainer {
+    height: fit-content;
+    width: 300px;
+    background-color: rgba(255, 228, 196, 0.523);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+    border-radius: 50px;
+}
+
+.homeCompContainer .imgCont {
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.homeCompContainer .imgCont img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+}
+
+.home .buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.home .createButton {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-red);
+    font-weight: 700;
+    border: 2px solid var(--cream);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.home .createButton button {
+    background-color: white;
+    outline: none;
+    border: none;
+    padding: 8px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.home .createButton button:hover {
+    transform: translateY(-2px);
+}
+
+.home .viewButton {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-red);
+    font-weight: 700;
+    border: 2px solid var(--cream);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.home .viewButton button {
+    background-color: white;
+    outline: none;
+    border: none;
+    padding: 8px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.home .viewButton button:hover {
+    transform: translateY(-2px);
+}

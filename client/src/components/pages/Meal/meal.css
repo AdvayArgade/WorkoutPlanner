@@ -1,0 +1,68 @@
+/* pages/Meal/meal.css */
+
+.mealsView .mealsViewContainer {
+    margin: 100px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+}
+
+.mealsView .mealsViewContainer .mealViewItem {
+    border: 5px solid var(--red);
+    position: relative;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.mealsView .mealsViewContainer .mealDetails {
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mealsViewContainer .mealDetails .mealName {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.mealsViewContainer .mealDetails .mealTime {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-red);
+}
+
+.mealsViewContainer .mealDetails .mealCat {
+    background-color: rgba(255, 228, 196, 0.523);
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: 700;
+}
+
+.mealsViewContainer .mealLink {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: white;
+    padding: 5px 0;
+    background-color: var(--red);
+    cursor: pointer;
+}
+
+.mealsViewContainer .mealLink:hover {
+    background-color: var(--dark-red);
+}
