@@ -56,3 +56,29 @@ export const getRoutines = async (req, res, next) => {
         next(err)
     }
 }
+
+
+const getWorkoutTemplate = (intensity, age, gender, disability) => {
+    // Here, you can add your logic to generate workout templates
+    // For now, we just return a string based on some conditions
+    if (disability && disability!== "none") {
+        return "Low-impact workout template";
+    } else if (intensity === "high") {
+        return "High-intensity workout template";
+    } else {
+        return "General workout template";
+    }
+};
+
+
+export const getTemplate = async (req, res, next) => {
+    const { intensity, age, gender, disability } = req.body;
+    try {
+        const template = getWorkoutTemplate(intensity, age, gender, disability);
+        console.log(template);
+        res.status(200).json({template});
+    }
+    catch (err){
+        next(err);
+    }
+}

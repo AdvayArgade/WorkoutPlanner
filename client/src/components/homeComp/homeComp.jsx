@@ -9,9 +9,11 @@ import { faPlus, faEye } from "@fortawesome/free-solid-svg-icons";
 import CreateMeal from "../create/CreateMeal";
 import CreateEntry from "../create/CreateEntry";
 import CreateRoutine from "../create/CreateRoutine";
+import WorkoutTemplate from "../create/WorkoutTemplate";
 
 const HomeComp = ({ image, name, description, view }) => {
   const [openPopup, setOpenPopup] = useState(false);
+  const [openTemplatePopup, setTemplatePopup] = useState(false);
 
   return (
     <div className="homeCompContainer">
@@ -37,6 +39,12 @@ const HomeComp = ({ image, name, description, view }) => {
           </Link>
           <p>View</p>
         </div>
+          <div className="createButton">
+              <button onClick={() => setTemplatePopup(true)}>
+                  <FontAwesomeIcon icon={faPlus} />
+              </button>
+              <p>Template</p>
+          </div>
       </div>
       {openPopup && name === "Meals" && <CreateMeal setOpen={setOpenPopup} />}
       {openPopup && name === "Entries" && (
@@ -45,6 +53,9 @@ const HomeComp = ({ image, name, description, view }) => {
       {openPopup && name === "Routines" && (
         <CreateRoutine setOpen={setOpenPopup} />
       )}
+        {openTemplatePopup && name === "Routines" && (
+            <WorkoutTemplate setOpen={setTemplatePopup} />
+        )}
     </div>
   );
 };

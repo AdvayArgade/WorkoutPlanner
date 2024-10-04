@@ -24,6 +24,7 @@ const Routines = () => {
                                 <div className="routineName">{r.name}</div>
                                 <div className="routineType">{r.workout_type}</div>
                                 <div className="routinePart">{r.body_part}</div>
+                                <div className="routineName">{r.description}</div>
                             </div>
                             {r.link && <Link to={r.link} style={{ textDecoration: "none", color: "black" }}>
                                 <div className="routineLink">Watch Workout Video</div>

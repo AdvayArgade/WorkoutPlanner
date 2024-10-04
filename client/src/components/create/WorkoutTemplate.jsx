@@ -1,5 +1,3 @@
-//components/create/CreateRoutine.jsx
-
 import './popUp.css'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,11 +6,14 @@ import { useContext, useState } from 'react';
 import axios from "axios"
 import { AuthContext } from '../../authContext.js';
 import { WorkoutType, BodyPart } from "../../data.js"
+import TemplatePopup from "./TemplatePopup"; // You may also include options for intensity
 
-const CreateRoutine = ({ setOpen }) => {
+const WorkoutTemplate = ({ setOpen }) => {
 
     const { user } = useContext(AuthContext);
     const [info, setInfo] = useState({});
+    const [template, setTemplate] = useState('');  // To store the workout template from the backend
+    const [showTemplatePopup, setShowTemplatePopup] = useState(false);
 
     const handleChange = (e) => {
         setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -21,17 +22,19 @@ const CreateRoutine = ({ setOpen }) => {
     const handleClick = async (e) => {
         e.preventDefault();
 
-        const newRoutine = {
-            ...info, author: user._id
-        }
+        // Send request to backend to get workout template
         try {
-            await axios.post("http://localhost:2000/api/routines", newRoutine, {
+            const response = await axios.post("http://localhost:2000/api/routines/template/getTemplate", {
+                ...info, author: user._id
+            }, {
                 withCredentials: false
-            })
-            setOpen(false)
+            });
+            // Set template from backend response
+            setTemplate(response.data.template);
+            setShowTemplatePopup(true);
         }
         catch (err) {
-            console.log(err)
+            console.log(err);
         }
     }
 
@@ -41,31 +44,15 @@ const CreateRoutine = ({ setOpen }) => {
 
                 <FontAwesomeIcon icon={faXmark} className="mClose" onClick={() => setOpen(false)} />
 
-                <div className="mTitle">Create Routine</div>
+                <div className="mTitle">Get Workout Template</div>
 
                 <form>
-                    <input
-                        className="formInput"
-                        type="text"
-                        onChange={handleChange}
-                        id="name"
-                        placeholder='Enter the Workout Name'
-                    />
-                    <input
-                        className="formInput"
-                        type="text"
-                        onChange={handleChange}
-                        id="link"
-                        placeholder='Add workout link'
-                    />
-
                     <div className="formInput" id='options'>
                         <label>Choose Workout Type</label>
                         <select id="workout_type" onChange={handleChange}>
                             <option key={0} value="none">-</option>
                             {
                                 WorkoutType.map((w, index) => (
-
                                     <option key={index} value={w}>{w}</option>
                                 ))
                             }
@@ -78,25 +65,45 @@ const CreateRoutine = ({ setOpen }) => {
                             <option key={0} value="none">-</option>
                             {
                                 BodyPart.map((b, index) => (
-
                                     <option key={index} value={b}>{b}</option>
                                 ))
                             }
                         </select>
                     </div>
+
                     <div className="formInput" id='options'>
-                        <label>Description</label>
-                        <textarea rows="8" className="description" id="description" onChange={handleChange}></textarea>
+                        <label>Choose Intensity</label>
+                        <select id="intensity" onChange={handleChange}>
+                            <option key={0} value="none">-</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
                     </div>
 
+                    <div className="formInput" id='options'>
+                        <label>Select Duration (in minutes)</label>
+                        <input
+                            type="number"
+                            onChange={handleChange}
+                            id="duration"
+                            placeholder="Enter workout duration"
+                        />
+                    </div>
                 </form>
 
                 <button className="mButton" onClick={handleClick}>
                     Submit
                 </button>
+
+                {/* Display the workout template from the backend */}
+                {showTemplatePopup && (
+                    <TemplatePopup template={template} setShowTemplatePopup={setShowTemplatePopup} />
+                )}
+
             </div>
         </div>
     )
 }
 
-export default CreateRoutine
+export default WorkoutTemplate;
