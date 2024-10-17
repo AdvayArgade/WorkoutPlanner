@@ -5,11 +5,11 @@ import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
 import useFetch from '../../../useFetch';
 import { AuthContext } from '../../../authContext';
-import './routine.css'
-import { Link } from 'react-router-dom';
+import './routineTailwind.css'
+import {Link, useParams} from 'react-router-dom';
 
 const Routines = () => {
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
     const { data } = useFetch(`/routines/${user._id}`)
     console.log("User id: ", user._id);
     return (

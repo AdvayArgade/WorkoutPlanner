@@ -12,7 +12,8 @@ const RoutineSchema = new mongoose.Schema(
         workout_type: { type: String, required: true },
         body_part: { type: String, required: true },
         link: { type: String },
-        description: { type: String }
+        description: { type: String },
+        shareable_link: { type: String }
     },
     {
         timestamps: true

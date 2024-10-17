@@ -1,0 +1,40 @@
+/* Tailwind CSS applied to the wrapper classes */
+
+/* Wrapping classes */
+.routinesViewContainer {
+    @apply mt-24 flex flex-wrap justify-center items-center gap-8 text-center;
+}
+
+.routineViewItem {
+    @apply relative flex flex-col w-96 h-72 bg-red-900 border-4 border-red-500 rounded-lg shadow-lg;
+}
+
+.buttonContainer {
+    @apply absolute top-2 right-2 flex space-x-2;
+}
+
+.edit-btn,
+.delete-btn,
+.share-btn {
+    @apply p-2 rounded-md bg-red-600 text-white hover:bg-red-700 focus:outline-none;
+}
+
+.routineDetails {
+    @apply absolute inset-0 bg-white bg-opacity-40 flex flex-col justify-center items-center rounded-lg p-4 gap-2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2;
+}
+
+.routineName {
+    @apply text-xl font-bold text-white;
+}
+
+.routineType {
+    @apply text-lg font-semibold text-yellow-300;
+}
+
+.routinePart {
+    @apply bg-red-500 text-white font-bold py-2 px-4 rounded-md;
+}
+
+.routineLink {
+    @apply mt-auto text-xl font-bold bg-red-500 text-white py-2 cursor-pointer hover:bg-red-700;
+}

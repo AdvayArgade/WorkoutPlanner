@@ -10,6 +10,7 @@ import { useContext } from "react";
 import { AuthContext } from "./authContext";
 import Home from "./components/pages/home/Home";
 import Meal from "./components/pages/Meal/Meal";
+import SharedRoutines from "./components/pages/Routine/SharedRoutines";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
                 <Route path="/entries" element={<ProtectedRoute><Entries /></ProtectedRoute>} />
                 <Route path="/meals" element={<ProtectedRoute><Meal /></ProtectedRoute>} />
                 <Route path="/routines" element={<ProtectedRoute><Routines /></ProtectedRoute>} />
+                <Route path="/share/routines/:link" element={<ProtectedRoute><SharedRoutines /></ProtectedRoute>} />
             </Routes>
         </BrowserRouter>
     );
